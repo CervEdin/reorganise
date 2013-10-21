@@ -1,0 +1,17 @@
+div[class^=xrat] {
+height:100px;
+background-color:#ccc;
+float:left;
+}
+.xrat02 {
+width:33.33%
+}
+.xrat03 {
+width:50%
+}
+.xrat04 {
+width:66.66%
+}
+.xrat06 {
+width:100%
+}
