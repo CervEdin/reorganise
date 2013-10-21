@@ -43,7 +43,7 @@ function organise() {
 		}
 	});
 }
-
+$('#button').click(function(){organise('#pinCont', 3);});
 //$(document).ready(organise('#pinCont', 3));
 
 // var rest = columns - counter;
