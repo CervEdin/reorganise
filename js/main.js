@@ -1,3 +1,5 @@
+var organizr = new Object();
+organizr.blocks = '';
 function ratioKidParent(){
 	return arguments[0].offsetWidth/arguments[0].parentNode.offsetWidth;
 }
@@ -11,7 +13,7 @@ function aryW()	{
 	var arr = arguments[0],
 		cls = arguments[1],
 		cnt = 0;
-		arr.each(function(index){
+		$.each(arr, function(index){
 			cnt += this.ratio*cls;
 		});
 		return cnt;
