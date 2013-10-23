@@ -1,7 +1,10 @@
-var organizr = new Object();
+var organizr = {};
 organizr.blocks = '';
-function ratioKidParent(){
-	return arguments[0].offsetWidth/arguments[0].parentNode.offsetWidth;
+function ratioKidParent() {
+    var kid = arguments[0],
+    	childW = kid.offsetWidth,
+        parW = kid.parentNode.offsetWidth;
+	return childW/parW;
 }
 function recRatio(){
 	var ary = arguments[0];
@@ -11,17 +14,16 @@ function recRatio(){
 }
 function aryW()	{
 	var arr = arguments[0],
-		cls = arguments[1],
 		cnt = 0;
 		$.each(arr, function(index){
-			cnt += this.ratio*cls;
+			cnt += this.ratio;
 		});
 		return cnt;
 }
 function doesItFit() {
 	var dis = arguments[0],
 		arr = arguments[1];
-		if (ratioKidParent(dis) + aryW(arr, window.pinColumns) <= window.pinColumns) {
+		if (ratioKidParent(dis) + aryW(arr) <= 1) {
 			return true;
 		}
 		else {
@@ -34,18 +36,40 @@ function organise() {
 		ary = [],
 		tempary = [],
 		counter = 0;
-	window.pinColumns = arguments[1];
-	recRatio(pins);
+	recRatio($.makeArray(pins));
 	console.log(window.pinColumns);
-	console.log(pins);
-	pins.each(function(){
-		if (doesItFit(this, tempary) === true){
+	console.log($.makeArray(pins));
+	pins.each(function(index){
+		if (doesItFit(pins[index], tempary) === true){
+			console.log(1337);
+			tempary.splice(tempary.length, 0, pins[index]);
+			if (aryW(tempary) === 1){
+				console.log(tempary);
+				ary.splice(ary.length, 0, tempary);
+				tempary = [];
+			}
 		}
 		else {
+			console.log(7331);
+			for (var i=index; i < pins.length; i++){
+				var dis = pins[i];
+				if (doesItFit(dis, tempary) === true){
+					console.log(999);
+					tempary.splice(tempary.length, 0, pins[i]);
+					console.log(tempary);
+					if (aryW(tempary) === 1){
+						ary.splice(ary.length, 0, tempary);
+						tempary = [];
+					}
+					else {
+						dis.ratio = 0.33;
+					}
+				}
+			}
 		}
 	});
 }
-$('#button').click(function(){organise('#pinCont', 3);});
+$('#button').click(function(){organise('#pinCont');});
 //$(document).ready(organise('#pinCont', 3));
 
 // var rest = columns - counter;
