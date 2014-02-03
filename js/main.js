@@ -64,5 +64,12 @@ function organise() {
 			}
 		}
 	});
+    console.log(ary);
+    ary.forEach(function(element){
+        element.forEach(function(element){
+            console.log('lol');
+            $('#pinTarget').append(element);
+        });
+    });
 }
 $('#button').click(function(){organise('#pinCont', '[class^="xrat"]');});
