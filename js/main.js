@@ -55,7 +55,8 @@ function organise() {
 //                console.log('running for loop');
 				if (doesItFit(dis, tempary) === true){
 					tempary.splice(tempary.length, 0, pins[i]);
-					if (aryW(tempary) === 1){
+//					console.log(Math.round(aryW(tempary)*10)/10);
+					if (Math.round(aryW(tempary)*10)/10 === 1){
 						ary.splice(ary.length, 0, tempary);
 						tempary = [];
 					}
