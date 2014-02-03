@@ -64,3 +64,4 @@ function organise() {
 		}
 	});
 }
+$('#button').click(function(){organise('#pinCont', '[class^="xrat"]');});
