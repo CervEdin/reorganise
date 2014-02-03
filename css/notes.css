@@ -2,6 +2,13 @@ div[class^=xrat] {
 height:100px;
 float:left;
 }
+div[class^=xrat] p {
+    text-align: center;
+}
+.xrat01 {
+width:16.66%;
+background-color:#ff7878;
+}
 .xrat02 {
 width:33.33%;
 background-color:#2ecca5;
