@@ -1,15 +1,18 @@
+// Evaluates the ratio of an element relative to its parent
 function ratioKidParent() {
     var kid = arguments[0],
     	childW = kid.offsetWidth,
         parW = kid.parentNode.offsetWidth;
 	return childW/parW;
 }
+// Iterates through an array of DOM elements, calling ratioKidParent, registering the value in the ratio property
 function recRatio(){
 	var ary = arguments[0];
 	for (var i = 0; i < ary.length; i++){
 		ary[i].ratio = ratioKidParent(ary[i]);
 	}
 }
+// Calculates the sum of the ratio properties, of an array of DOM elements
 function aryW()	{
 	var cnt = 0;
 		$.each(arguments[0], function(index){
@@ -17,6 +20,7 @@ function aryW()	{
 		});
 		return cnt;
 }
+// Evaluates if the sum of the ratio of an element and other (possible) elements is greater than 1
 function doesItFit() {
     if (ratioKidParent(arguments[0]) + aryW(arguments[1]) <= 1) {
         return true;
@@ -25,6 +29,7 @@ function doesItFit() {
         return false;
     }
 }
+// main function, iterates over speciefied DOM elements and attempts to organise them to achieve a ratio of one each 'line'
 function organise() {
 	var id = $(arguments[0]),
 		pins = $(arguments[0] + ' ' + arguments[1]),
@@ -34,6 +39,7 @@ function organise() {
 	recRatio(pins);
 //	console.log(pins);
 	pins.each(function(index){
+        console.log(pins[index]);
 		if (doesItFit(pins[index], tempary) === true){
 			tempary.splice(tempary.length, 0, pins[index]);
 			if (aryW(tempary) === 1){
