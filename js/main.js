@@ -37,12 +37,39 @@ function organise() {
 		tempary = [],
 		counter = 0;
 	recRatio(pins);
-//	console.log(pins);
-	pins.each(function(index){
-        console.log(pins[index]);
+	console.log(pins);
+//	pins.each(function(index){
+//        console.log(pins[index]);
+//		if (doesItFit(pins[index], tempary) === true){
+//			tempary.splice(tempary.length, 0, pins[index]);
+//			if (aryW(tempary) === 1){
+////				console.log(tempary);
+//				ary.splice(ary.length, 0, tempary);
+//				tempary = [];
+//			}
+//		}
+//		else {
+////			console.log('Element ' + index + ' didnt fit');
+//			for (var i=index; i < pins.length; i++){
+//				var dis = pins[i];
+////                console.log('running for loop');
+//				if (doesItFit(dis, tempary) === true){
+//					tempary.splice(tempary.length, 0, pins[i]);
+////					console.log(Math.round(aryW(tempary)*10)/10);
+//					if (Math.round(aryW(tempary)*10)/10 === 1){
+//						ary.splice(ary.length, 0, tempary);
+//						tempary = [];
+//					}
+//				}
+//			}
+//		}
+//	});
+    for (var index=0; index < pins.length; index++){
+        console.log(index);
 		if (doesItFit(pins[index], tempary) === true){
 			tempary.splice(tempary.length, 0, pins[index]);
-			if (aryW(tempary) === 1){
+//            pins.splice(index, 1);
+			if (Math.round(aryW(tempary)*10)/10 === 1){
 //				console.log(tempary);
 				ary.splice(ary.length, 0, tempary);
 				tempary = [];
@@ -55,6 +82,7 @@ function organise() {
 //                console.log('running for loop');
 				if (doesItFit(dis, tempary) === true){
 					tempary.splice(tempary.length, 0, pins[i]);
+//                    pins.splice(i, 1);
 //					console.log(Math.round(aryW(tempary)*10)/10);
 					if (Math.round(aryW(tempary)*10)/10 === 1){
 						ary.splice(ary.length, 0, tempary);
@@ -63,7 +91,7 @@ function organise() {
 				}
 			}
 		}
-	});
+	};
     console.log(ary);
     ary.forEach(function(element){
         element.forEach(function(element){
@@ -72,4 +100,6 @@ function organise() {
         });
     });
 }
-$('#button').click(function(){organise('#pinCont', '[class^="xrat"]');});
+var original = null;
+$('#organise').click(function(){original = $('.main-container').clone();organise('#pinCont', '[class^="xrat"]');});
+$('#reset').click(function(){$('.main-container').replaceWith(original);});
