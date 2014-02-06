@@ -95,7 +95,7 @@ function organise() {
 //		}
 //	};
     while (pins.length>0){
-        var obj = pins.shift()
+        var obj = pins.shift();
         if (doesItFit(obj, tempary) === true){
             tempary.push(obj);
         } else {
@@ -104,11 +104,23 @@ function organise() {
         if (Math.round(aryW(tempary)*10)/10 === 1){
             ary = ary.concat(tempary);
             tempary = [];
-            for (var i=1; i<store.length; i++){
+			var storeL = store.length;
+            for (var i=0; i<storeL; i++){
                 var elem = store.shift();
                 pins.unshift(elem);
             }
         }
+		if (pins.length === 0 && store.length > 0) {
+			var storeL = store.length;
+            for (var i=0; i<storeL; i++){
+                var elem = store.shift();
+                pins.unshift(elem);
+				counter++;
+            }
+		}
+		if (counter>1){
+			break;
+		}
     }
     console.log('pins');
     console.log(pins);
