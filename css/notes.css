@@ -1,10 +1,22 @@
+.middle > * {
+  vertical-align: middle;
+}
 div[class^=xrat] {
-height:100px;
-float:left;
+    height:100px;
+    float:left;
 }
 div[class^=xrat] p {
     text-align: center;
+    line-height: 50px;
+    margin: 0;
+    border:1px solid #999;
+    font-size:20px;
 }
+
+
+
+
+
 .xrat01 {
 width:16.66%;
 background-color:#ff7878;

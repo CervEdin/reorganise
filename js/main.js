@@ -133,5 +133,5 @@ function organise() {
         });
 };
 var original = null;
-$('#organise').click(function(){original = $('.main-container').clone();organise('#pinCont', '[class^="xrat"]');});
-$('#reset').click(function(){$('.main-container').replaceWith(original);});
+$('#organise').click(function(){original = $('.main.wrapper').clone();organise('#pinCont', '[class^="xrat"]');});
+$('#reset').click(function(){$('.main.wrapper').replaceWith(original);});
