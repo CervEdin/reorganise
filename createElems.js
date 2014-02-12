@@ -1,3 +1,4 @@
+var original = null;
 var wrap = '#pinCont',
     colors = {
         1:'#2ecca5',
@@ -26,6 +27,7 @@ $('#createElems').click(function(){
         maxW = document.elements.maxW.valueAsNumber,
         minW = document.elements.minW.valueAsNumber;
     createElems(minW, maxW, cnt);
+    original = $('.main-container').html();
 });
 $('#removeElems').click(function(){
     document.getElementById("pinCont").innerHTML = '';

@@ -132,6 +132,5 @@ function organise() {
             $('#pinTarget').append(element);
         });
 };
-var original = null;
-$('#organise').click(function(){original = $('.main.wrapper').clone();organise('#pinCont', '[class^="xrat"]');});
+$('#organise').click(function(){organise('#pinCont', '[class^="xrat"]');});
 $('#reset').click(function(){$('.main.wrapper').replaceWith(original);});
