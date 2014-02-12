@@ -96,7 +96,6 @@ function organise() {
 //	};
     while (pins.length>0){
         var obj = pins.shift();
-        if (doesItFit(obj, tempary) === true){
             tempary.push(obj);
         } else {
             store.unshift(obj);
