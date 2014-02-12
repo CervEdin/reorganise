@@ -119,6 +119,9 @@ function organise() {
             }
 		}
 		if (counter>1){
+			//add a try fitting it another way statement or something
+		}
+		else if (counter>5){
 			break;
 		}
     }
