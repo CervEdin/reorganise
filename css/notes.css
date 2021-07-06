@@ -1,46 +1,17 @@
-.middle > * {
-  vertical-align: middle;
-}
 div[class^=xrat] {
-    height:100px;
-    float:left;
-}
-div[class^=xrat] p {
-    text-align: center;
-    line-height: 50px;
-    margin: 0;
-    border:1px solid #999;
-    font-size:20px;
-}
-
-
-
-
-
-.xrat01 {
-width:16.66%;
-background-color:#ff7878;
+height:100px;
+background-color:#ccc;
+float:left;
 }
 .xrat02 {
-width:33.33%;
-background-color:#2ecca5;
+width:33.33%
 }
 .xrat03 {
-width:50%;
-background-color:#1e5d42;
+width:50%
 }
 .xrat04 {
-width:66.66%;
-background-color:#ffffe5;
-}
-.xrat05 {
-width:83.33%;
-background-color:#7e5df1;
+width:66.66%
 }
 .xrat06 {
-width:100%;
-background-color:#365bdf;
-}
-hr {
-    margin:50px;
+width:100%
 }
